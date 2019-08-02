@@ -11,15 +11,15 @@ from functools import partial
 import tkinter as tk
 from tkinter import messagebox
 def selenium(worker):
-    your_url  = "http://yourweb/Dashboard/Dashboard/"
-    PROXY = "proxy.name.vn:80" # IP:PORT or HOST:PORT
+    
+    PROXY = "proxy.fpt.vn:80" # IP:PORT or HOST:PORT
     path = r"C:/Users/TuongVX/Desktop/chromedriver" # goi path nay den noi chua file chromedriver
     chrome_options = webdriver.ChromeOptions()
     #chrome_options.add_argument('--proxy-server=%s' % PROXY) # co the window khong can proxy nay, cai nay dung trong server centos.
-    username = "user"
-    passwword = "passwword"
+    username = "vietnd16"
+    passwword = "Nguyendviet181292"
     chrome = webdriver.Chrome(executable_path= path, chrome_options=chrome_options)
-    chrome.get("http://yourweb.com") 
+    chrome.get("http://ticket.fpt.net") 
     elem = chrome.find_element_by_id('User')
     elem.send_keys(username)
     elem = chrome.find_element_by_id('Pass')
@@ -27,9 +27,7 @@ def selenium(worker):
     chrome.find_element_by_id('btnLogIn').click()
     count = 0
     while True:
-        if count >= len(worker):
-            count = 0
-        chrome.get("http://yourweb/Dashboard/Dashboard/")
+        chrome.get("http://ticket.fpt.net/Dashboard/Dashboard/")
 
         table = chrome.find_elements_by_css_selector("#SupportNew table tbody tr td:nth-child(3) a")
         list_link_ticket = [link.get_attribute("href") for link in table]
@@ -40,7 +38,9 @@ def selenium(worker):
             option_worker = []
             option_position = []
             chrome.get(link)
-            # chrome.find_element_by_xpath('//*[@id=\"fTicketStatus\"]/option[2]').click()
+            if count >= len(worker):
+                count = 0
+            chrome.find_element_by_xpath('//*[@id=\"fTicketStatus\"]/option[2]').click()
             # option = chrome.find_elements_by_css_selector('#fProcessStaff > option')
             # for i in range(len(option)):
             #   option_worker.append(option[i].text)
@@ -52,10 +52,10 @@ def selenium(worker):
             # print(option_position)
             # xpath_worker = '//*[@id=\"fProcessStaff\"]/option[' + str(option_position[count])+ ']'
             chrome.find_element_by_xpath("//select[@name=\'fProcessStaff\']/option[text()=\'" + str(list(worker.keys())[count]) + "\']").click()
+            count = count + 1
             # chrome.find_element_by_xpath(xpath_worker).click()
             # chrome.find_element_by_xpath('//*[@id=\"btnCreate\"]').click() #fProcessStaff > option:nth-child(2)
         time.sleep(5)
-        count = count + 1
         # chrome.find_element_by_xpath('//*[@id=\"fProcessStaff\"]/option[21]').click()
         # chrome.find_element_by_xpath('//*[@id=\"btnCreate\"]').click() #fProcessStaff > option:nth-child(2)
     chrome.close()
@@ -76,7 +76,7 @@ def action(var):
 def GUI():
     arg = []
     worker = ['Bùi Thanh Sinh', 'Cao Thanh Lâm', 'Đỗ Như Ngọc', 'Đỗ Thị Thanh Thu', 'Đỗ Văn Thuật',\
-    'Đồng Xuân Huy', 'Dương Đức Nhân ', 'Dương Thị Bích', 'Dương Thị Mỹ', 'Hoàng Đình Duy', 'Hoàng Tuấn Đạt',\
+    'Đồng Xuân Huy', 'Dương Đức Nhân ', 'Dương Thị Bích', 'Dương Thị Mỹ', 'Hoàng Tuấn Đạt',\
     'Huỳnh Hoàng Tiến Đạt', 'Lê Đình Tùng', 'Lê Mai Châu Giang', 'Lê Minh Cảnh', 'Lê Như Ý', 'Lê Quốc Dương',\
     'Lê Tuấn Anh', 'Lê Văn Mạnh', 'Lê Văn Tuấn Anh', 'Lê Vũ Hoàng', 'Mai Thị Minh Trang', 'Ngô Minh Hưng',\
     'Ngô Thị Khả Anh', 'Nguyễn Châu Long', 'Nguyễn Công Nguyên', 'Nguyễn Đức Việt', 'Nguyễn Duy Định', \
@@ -112,5 +112,3 @@ def GUI():
     delete_button.pack()
     root.mainloop()
 GUI()
-
-
