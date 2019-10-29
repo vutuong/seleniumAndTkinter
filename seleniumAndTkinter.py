@@ -16,8 +16,8 @@ def selenium(worker):
     path = r"C:/Users/TuongVX/Desktop/chromedriver" # goi path nay den noi chua file chromedriver
     chrome_options = webdriver.ChromeOptions()
     #chrome_options.add_argument('--proxy-server=%s' % PROXY) # co the window khong can proxy nay, cai nay dung trong server centos.
-    username = "vietnd16"
-    passwword = "Nguyendviet181292"
+    username = "user"
+    passwword = "password"
     chrome = webdriver.Chrome(executable_path= path, chrome_options=chrome_options)
     chrome.get("http://ticket.fpt.net") 
     elem = chrome.find_element_by_id('User')
