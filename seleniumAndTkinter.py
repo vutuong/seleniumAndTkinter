@@ -59,7 +59,7 @@ def selenium(worker):
         # chrome.find_element_by_xpath('//*[@id=\"fProcessStaff\"]/option[21]').click()
         # chrome.find_element_by_xpath('//*[@id=\"btnCreate\"]').click() #fProcessStaff > option:nth-child(2)
     chrome.close()
-worker = {"Tạ Thanh Sơn":0, "Lê Văn Tuấn Anh":0, "Đỗ Văn Thuật":0} # tam thoi dung list nay de test cac nhan su dang truc 
+worker = {"worker1":0, "worker2":0, "worker3":0} # tam thoi dung list nay de test cac nhan su dang truc 
 # selenium(worker)
 
 def action(var):
@@ -75,17 +75,7 @@ def action(var):
     # messagebox.showinfo("data","You Selected " + x)
 def GUI():
     arg = []
-    worker = ['Bùi Thanh Sinh', 'Cao Thanh Lâm', 'Đỗ Như Ngọc', 'Đỗ Thị Thanh Thu', 'Đỗ Văn Thuật',\
-    'Đồng Xuân Huy', 'Dương Đức Nhân ', 'Dương Thị Bích', 'Dương Thị Mỹ', 'Hoàng Tuấn Đạt',\
-    'Huỳnh Hoàng Tiến Đạt', 'Lê Đình Tùng', 'Lê Mai Châu Giang', 'Lê Minh Cảnh', 'Lê Như Ý', 'Lê Quốc Dương',\
-    'Lê Tuấn Anh', 'Lê Văn Mạnh', 'Lê Văn Tuấn Anh', 'Lê Vũ Hoàng', 'Mai Thị Minh Trang', 'Ngô Minh Hưng',\
-    'Ngô Thị Khả Anh', 'Nguyễn Châu Long', 'Nguyễn Công Nguyên', 'Nguyễn Đức Việt', 'Nguyễn Duy Định', \
-    'Nguyễn Gia Thuận', 'Nguyễn Hoàng Anh', 'Nguyễn Hoàng Sơn', 'Nguyễn Hoàng Trung', 'Nguyễn Hữu Hiệp', \
-    'Nguyễn Minh Đức', 'Nguyễn Minh Tuấn', 'Nguyễn Ngọc Hoài Ân (MR)', 'Nguyễn Ngọc Minh Thư', 'Nguyễn Ngọc Sang', \
-    'Nguyễn Thị Bảo Hà', 'Nguyễn Thị Hải Hiền', 'Nguyễn Thị Linh', 'Nguyễn Trần Thạch Tiến', 'Nguyễn Tùng Lâm', \
-    'Nguyễn Văn Khang', 'Phạm Thao Thức', 'Phạm Thị Hoa', 'Phạm Văn Quyền ', 'Phan Khánh Toàn', 'Phan Văn Minh Tuấn', \
-    'Tạ Thanh Sơn', 'Thái Văn Nghĩa', 'Trần Quốc Tùng', 'Trần Thị Dung', 'Trịnh Đức Cương', 'Trương Ngọc Trung', \
-    'Trương Tiến Thành', 'Võ Minh Pháp', 'Vũ Minh Tuấn', 'Vũ Ngọc Hội', 'Vũ Thị Thủy', 'Vương Chí Lộc']
+    worker = ['worker1', 'worker2', 'worker3']
     arg.append(worker)
     root = Tk()
     root.geometry("300x300")
